@@ -5,11 +5,13 @@ async function diningHalls(){
     console.log(data);
 
     data["data"].forEach((item) => {
-        const appendItem = document.createElement("tr");
+        let counter = 1;
         const html = data["data"].map(hall => {
             return (`
             <tr>
-                <span class='name'>${hall.hall_name}</span>
+                <th><span class='id'>${counter++}</span></th>
+                <td><span class='name'>${hall.hall_name}</span></td>
+                <td><span class='address'>${hall.hall_address}</span></td>
             </tr>
             `)
         });
