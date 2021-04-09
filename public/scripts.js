@@ -50,7 +50,7 @@ async function windowActions() {
     const chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title:{
-            text: "Evening Sales in a Restaurant"
+            text: "Breakdown of Meals and their Macromolecules"
         },
         //axisX: {
         //    valueFormatString: "DDD"
