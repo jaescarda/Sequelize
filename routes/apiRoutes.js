@@ -214,9 +214,9 @@ router.get("/restrictions/:restriction_id", async (req, res) => {
 });
 
 /// /////////////////////////////////
-/// //////MacroChart SQL Endpoint////////
+/// //////Whole Meal SQL Endpoint////////
 /// /////////////////////////////////
-router.get("/macroChart", async (req, res) => {
+router.get("/wholeMeal", async (req, res) => {
   try {
       const meals = await db.Meals.findAll();
       const macros = await db.Macros.findAll();
@@ -233,7 +233,7 @@ router.get("/macroChart", async (req, res) => {
           cholesterol: macrosForMeal.cholesterol,
         }
       })
-      res.json(mealTable);
+      res.json({data: mealTable});
   } catch (err) {
     console.error(err);
     res.error("Server error");
