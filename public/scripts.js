@@ -45,18 +45,19 @@ async function windowActions() {
         const random = getRandomIntInclusive(0, meals.length-1);
         return meals[random];
     });
-    //console.log("10 random meals:", selected)
+    console.log("10 random meals:", selected)
+    console.log("First meal name:", selected[0].name)
     const chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title:{
             text: "Evening Sales in a Restaurant"
         },
-        axisX: {
-            valueFormatString: "DDD"
-        },
-        axisY: {
-            prefix: "$"
-        },
+        //axisX: {
+        //    valueFormatString: "DDD"
+        //},
+        //axisY: {
+        //    prefix: ""
+        //},
         toolTip: {
             shared: true
         },
@@ -64,86 +65,112 @@ async function windowActions() {
             cursor: "pointer",
             itemclick: toggleDataSeries
         },
+
+        // sodium
         data: [{
             type: "stackedBar",
-            name: "Meals",
+            name: "Sodium",
             showInLegend: "true",
-            xValueFormatString: "DD, MMM",
-            yValueFormatString: "$#,##0",
             dataPoints: [
-                { x: new Date(2017, 0, 30), y: 56 },
-                { x: new Date(2017, 0, 31), y: 45 },
-                { x: new Date(2017, 1, 1), y: 71 },
-                { x: new Date(2017, 1, 2), y: 41 },
-                { x: new Date(2017, 1, 3), y: 60 },
-                { x: new Date(2017, 1, 4), y: 75 },
-                { x: new Date(2017, 1, 5), y: 98 }
+                { y: selected[0].sodium, label: selected[0].name },
+                { y: selected[1].sodium, label: selected[1].name},
+                { y: selected[2].sodium, label: selected[2].name },
+                { y: selected[3].sodium, label: selected[3].name },
+                { y: selected[4].sodium, label: selected[4].name },
+                { y: selected[5].sodium, label: selected[5].name },
+                { y: selected[6].sodium, label: selected[6].name },
+                { y: selected[7].sodium, label: selected[7].name },
+                { y: selected[8].sodium, label: selected[8].name },
+                { y: selected[9].sodium, label: selected[9].name },
+
             ]
         },
         {
             type: "stackedBar",
-            name: "Snacks",
+            name: "Calories",
             showInLegend: "true",
-            xValueFormatString: "DD, MMM",
-            yValueFormatString: "$#,##0",
             dataPoints: [
-                { x: new Date(2017, 0, 30), y: 86 },
-                { x: new Date(2017, 0, 31), y: 95 },
-                { x: new Date(2017, 1, 1), y: 71 },
-                { x: new Date(2017, 1, 2), y: 58 },
-                { x: new Date(2017, 1, 3), y: 60 },
-                { x: new Date(2017, 1, 4), y: 65 },
-                { x: new Date(2017, 1, 5), y: 89 }
+                { y: selected[0].calories, label: selected[0].name },
+                { y: selected[1].calories, label: selected[1].name },
+                { y: selected[2].calories, label: selected[2].name },
+                { y: selected[3].calories, label: selected[3].name },
+                { y: selected[4].calories, label: selected[4].name },
+                { y: selected[5].calories, label: selected[5].name },
+                { y: selected[6].calories, label: selected[6].name },
+                { y: selected[7].calories, label: selected[7].name },
+                { y: selected[8].calories, label: selected[8].name },
+                { y: selected[9].calories, label: selected[9].name },
             ]
         },
         {
             type: "stackedBar",
-            name: "Drinks",
+            name: "Carbs",
             showInLegend: "true",
-            xValueFormatString: "DD, MMM",
-            yValueFormatString: "$#,##0",
             dataPoints: [
-                { x: new Date(2017, 0, 30), y: 48 },
-                { x: new Date(2017, 0, 31), y: 45 },
-                { x: new Date(2017, 1, 1), y: 41 },
-                { x: new Date(2017, 1, 2), y: 55 },
-                { x: new Date(2017, 1, 3), y: 80 },
-                { x: new Date(2017, 1, 4), y: 85 },
-                { x: new Date(2017, 1, 5), y: 83 }
+                { y: selected[0].carbs, label: selected[0].name },
+                { y: selected[1].carbs, label: selected[1].name },
+                { y: selected[2].carbs, label: selected[2].name },
+                { y: selected[3].carbs, label: selected[3].name },
+                { y: selected[4].carbs, label: selected[4].name },
+                { y: selected[5].carbs, label: selected[5].name },
+                { y: selected[6].carbs, label: selected[6].name },
+                { y: selected[7].carbs, label: selected[7].name },
+                { y: selected[8].carbs, label: selected[8].name },
+                { y: selected[9].carbs, label: selected[9].name },
             ]
         },
         {
             type: "stackedBar",
-            name: "Dessert",
+            name: "Protein",
             showInLegend: "true",
-            xValueFormatString: "DD, MMM",
-            yValueFormatString: "$#,##0",
             dataPoints: [
-                { x: new Date(2017, 0, 30), y: 61 },
-                { x: new Date(2017, 0, 31), y: 55 },
-                { x: new Date(2017, 1, 1), y: 61 },
-                { x: new Date(2017, 1, 2), y: 75 },
-                { x: new Date(2017, 1, 3), y: 80 },
-                { x: new Date(2017, 1, 4), y: 85 },
-                { x: new Date(2017, 1, 5), y: 105 }
+                { y: selected[0].protein, label: selected[0].name },
+                { y: selected[1].protein, label: selected[1].name },
+                { y: selected[2].protein, label: selected[2].name },
+                { y: selected[3].protein, label: selected[3].name },
+                { y: selected[4].protein, label: selected[4].name },
+                { y: selected[5].protein, label: selected[5].name },
+                { y: selected[6].protein, label: selected[6].name },
+                { y: selected[7].protein, label: selected[7].name },
+                { y: selected[8].protein, label: selected[8].name },
+                { y: selected[9].protein, label: selected[9].name },
             ]
         },
         {
             type: "stackedBar",
-            name: "Takeaway",
+            name: "Fat",
             showInLegend: "true",
-            xValueFormatString: "DD, MMM",
-            yValueFormatString: "$#,##0",
             dataPoints: [
-                { x: new Date(2017, 0, 30), y: 52 },
-                { x: new Date(2017, 0, 31), y: 55 },
-                { x: new Date(2017, 1, 1), y: 20 },
-                { x: new Date(2017, 1, 2), y: 35 },
-                { x: new Date(2017, 1, 3), y: 30 },
-                { x: new Date(2017, 1, 4), y: 45 },
-                { x: new Date(2017, 1, 5), y: 25 }
+                { y: selected[0].fat, label: selected[0].name },
+                { y: selected[1].fat, label: selected[1].name },
+                { y: selected[2].fat, label: selected[2].name },
+                { y: selected[3].fat, label: selected[3].name },
+                { y: selected[4].fat, label: selected[4].name },
+                { y: selected[5].fat, label: selected[5].name },
+                { y: selected[6].fat, label: selected[6].name },
+                { y: selected[7].fat, label: selected[7].name },
+                { y: selected[8].fat, label: selected[8].name },
+                { y: selected[9].fat, label: selected[9].name },
             ]
-        }]
+        },
+        {
+            type: "stackedBar",
+            name: "Cholesterol",
+            showInLegend: "true",
+            dataPoints: [
+                { y: selected[0].cholesterol, label: selected[0].name },
+                { y: selected[1].cholesterol, label: selected[1].name },
+                { y: selected[2].cholesterol, label: selected[2].name },
+                { y: selected[3].cholesterol, label: selected[3].name },
+                { y: selected[4].cholesterol, label: selected[4].name },
+                { y: selected[5].cholesterol, label: selected[5].name },
+                { y: selected[6].cholesterol, label: selected[6].name },
+                { y: selected[7].cholesterol, label: selected[7].name },
+                { y: selected[8].cholesterol, label: selected[8].name },
+                { y: selected[9].cholesterol, label: selected[9].name },
+            ]
+        }
+      ]
     });
     chart.render();
     
